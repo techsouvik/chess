@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .c1{
+            background-color: rgb(240, 199, 122);
+            height: 70px;
+            width: 70px;
+            font-weight: bold;
+            text-align: center;
+            font-size:30px;
+        }
+        .c2{
+            background-color: sandybrown;
+            height: 70px;
+            width: 70px;
+            font-weight: bold;
+            text-align: center;
+            font-size:30px;
+        }
+        
+    </style>
+    <script>
+        var bl=['&#9820;','&#9822;','&#9821;','&#9819;','&#9818;','&#9821;','&#9822;','&#9820;','&#9823;'];
+        var wh=['&#9814;','&#9816;','&#9815;','&#9813;','&#9812;','&#9815;','&#9816;','&#9814;','&#9817;'];
+        function chess(){
+            var s="<table border='1' bordercolor='black' cellspacing='0' cellpading='10' width='100%'>";
+            var s1="";
+            for(var i=0;i<8;i++){
+                s+="<tr>";
+                for(var j=0;j<8;j++){
+                    if(i==0)
+                        s1=wh[j];
+                    else if(i==1)
+                        s1=wh[8];
+                    else if(i==6)
+                        s1=bl[8];
+                    else if(i==7)
+                        s1=bl[j];
+                    else
+                        s1="&nbsp";
+                    if((i+j)%2==0){
+                        s+="<td class='c1'>"+s1+"</td>";
+                    }
+                    else{
+                        s+="<td class='c2'>"+s1+"</td>";
+                    }
+                }
+                s+="</tr>";
+            }
+            s+="</table>"
+            document.getElementById("tbl").innerHTML=s;
+        }
+    </script>
+    <title>ChessBoard</title>
+</head>
+<body onload="chess()">
+    <div id='tbl'>
+
+    </div>
+</body>
+</html>
